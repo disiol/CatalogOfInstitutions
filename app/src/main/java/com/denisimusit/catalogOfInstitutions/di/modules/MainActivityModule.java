@@ -8,6 +8,7 @@ import dagger.Module;
 
 @Module
 public interface MainActivityModule {
+    @ActivityScope
     MainActivity mainActivity();
 
 }

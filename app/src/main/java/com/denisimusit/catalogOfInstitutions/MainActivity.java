@@ -3,6 +3,7 @@ package com.denisimusit.catalogOfInstitutions;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.denisimusit.catalogOfInstitutions.di.component.DaggerApplicationComponent;
 import com.denisimusit.catalogOfInstitutions.interactor.DataStore;
 
 import javax.inject.Inject;
@@ -14,6 +15,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        DaggerApplicationComponent.builder()
+                .context(this)
+                .build()
+                .inject(this);
+
         setContentView(R.layout.activity_main);
         getVenuesByLocation();
     }

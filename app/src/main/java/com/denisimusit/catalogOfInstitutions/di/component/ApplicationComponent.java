@@ -3,8 +3,8 @@ package com.denisimusit.catalogOfInstitutions.di.component;
 import android.content.Context;
 
 import com.denisimusit.catalogOfInstitutions.MainActivity;
-import com.denisimusit.catalogOfInstitutions.TokenExchangeApplication;
 import com.denisimusit.catalogOfInstitutions.di.ApplicationModule;
+import com.denisimusit.catalogOfInstitutions.di.modules.MainActivityModule;
 
 import javax.inject.Singleton;
 
@@ -12,7 +12,7 @@ import dagger.BindsInstance;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {ApplicationModule.class})
+@Component(modules = {ApplicationModule.class, MainActivityModule.class})
 public interface ApplicationComponent {
 
     @Component.Builder
@@ -22,6 +22,6 @@ public interface ApplicationComponent {
         ApplicationComponent build();
     }
 
-    void inject(TokenExchangeApplication app);
+    //void inject(TokenExchangeApplication app);
     void inject(MainActivity mainActivity);
 }
